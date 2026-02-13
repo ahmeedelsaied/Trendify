@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: "cairo", sans-serif;
+
+}
+
+.info {
+  display: none;
+}
+
+/* General Setup */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Custom Colors & Gradients */
+:root {
+  --primary-gradient: linear-gradient(to right, #FF4B2B, #FF416C);
+}
+
+.text-gradient {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-gradient {
+  background: var(--primary-gradient);
+  border: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-gradient:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4);
+}
+
+/* Search Bar Styling */
+.search-icon {
+  border-radius: 20px 0 0 20px !important;
+}
+
+.search-input {
+  border-radius: 0 20px 20px 0 !important;
+  box-shadow: none !important;
+}
+
+/* Product Card Styling */
+.product-card {
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 15px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.img-container {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+.img-container img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.product-card:hover .img-container img {
+  transform: scale(1.05);
+}
+
+/* تنسيق زر القلب الجديد */
+.btn-outline-danger i {
+    transition: 0.3s;
+}
+
+/* عند الضغط (Active) يتحول لقلب ممتلئ */
+.btn-outline-danger.active i {
+    font-weight: 900; /* يجعل الايكونة Solid */
+    transform: scale(1.2); /* تكبير بسيط */
+}
+
+/* تعديل بسيط لزر القلب ليعمل مع وظيفة الجافاسكربت */
+.btn-outline-danger.active {
+    background-color: #dc3545;
+    color: white;
+}
+/* تنسيق زر القلب الجديد */
+.btn-outline-danger i {
+    transition: 0.3s;
+}
+
+/* عند الضغط (Active) يتحول لقلب ممتلئ */
+.btn-outline-danger.active i {
+    font-weight: 900; /* يجعل الايكونة Solid */
+    transform: scale(1.2); /* تكبير بسيط */
+}
+
+/* تعديل بسيط لزر القلب ليعمل مع وظيفة الجافاسكربت */
+.btn-outline-danger.active {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* --- تنسيق اللوجو --- */
+.brand-logo {
+    font-family: 'Montserrat', sans-serif; /* خط عريض ومميز */
+    font-weight: 800; /* سمك الخط */
+    letter-spacing: -1px; /* تقليل المسافة بين الحروف لستايل عصري */
+    font-size: 1.5rem;
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.brand-logo i {
+    font-size: 1.8rem; /* حجم الأيقونة أكبر قليلاً من النص */
+    margin-right: 8px;
+    /* الجرادينت للأيقونة */
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-logo span {
+    position: relative;
+}
+
+/* نقطة حمراء صغيرة لزوم الديزاين (اختياري) */
+.brand-logo span::after {
+    content: '.';
+    color: #FF416C;
+    font-size: 2rem;
+    line-height: 0;
+}
