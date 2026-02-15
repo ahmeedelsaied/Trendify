@@ -1,154 +1,500 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* --- Fonts & Vars --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-
-body {
-  font-family: "cairo", sans-serif;
-
-}
-
-.info {
-  display: none;
-}
-
-/* General Setup */
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #f8f9fa;
-}
-
-/* Custom Colors & Gradients */
 :root {
-  --primary-gradient: linear-gradient(to right, #FF4B2B, #FF416C);
+    --primary-grad: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+    --primary-color: #FF416C;
+    --dark-text: #2d3436;
+    --bg-body: #f9fbfc;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 20px 40px rgba(255, 65, 108, 0.2);
 }
 
-.text-gradient {
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--dark-text);
+    overflow-x: hidden;
 }
 
-.btn-gradient {
-  background: var(--primary-gradient);
-  border: none;
-  transition: transform 0.2s, box-shadow 0.2s;
+/* --- Navbar & Hero --- */
+.navbar {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px 0;
 }
 
-.btn-gradient:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4);
-}
-
-/* Search Bar Styling */
-.search-icon {
-  border-radius: 20px 0 0 20px !important;
-}
-
-.search-input {
-  border-radius: 0 20px 20px 0 !important;
-  box-shadow: none !important;
-}
-
-/* Product Card Styling */
-.product-card {
-  transition: all 0.3s ease;
-  border: none;
-  border-radius: 15px;
-  background: #fff;
-  overflow: hidden;
-}
-
-.product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.img-container {
-  height: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  position: relative;
-}
-
-.img-container img {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-  transition: transform 0.3s;
-}
-
-.product-card:hover .img-container img {
-  transform: scale(1.05);
-}
-
-/* تنسيق زر القلب الجديد */
-.btn-outline-danger i {
-    transition: 0.3s;
-}
-
-/* عند الضغط (Active) يتحول لقلب ممتلئ */
-.btn-outline-danger.active i {
-    font-weight: 900; /* يجعل الايكونة Solid */
-    transform: scale(1.2); /* تكبير بسيط */
-}
-
-/* تعديل بسيط لزر القلب ليعمل مع وظيفة الجافاسكربت */
-.btn-outline-danger.active {
-    background-color: #dc3545;
-    color: white;
-}
-/* تنسيق زر القلب الجديد */
-.btn-outline-danger i {
-    transition: 0.3s;
-}
-
-/* عند الضغط (Active) يتحول لقلب ممتلئ */
-.btn-outline-danger.active i {
-    font-weight: 900; /* يجعل الايكونة Solid */
-    transform: scale(1.2); /* تكبير بسيط */
-}
-
-/* تعديل بسيط لزر القلب ليعمل مع وظيفة الجافاسكربت */
-.btn-outline-danger.active {
-    background-color: #dc3545;
-    color: white;
-}
-
-/* --- تنسيق اللوجو --- */
-.brand-logo {
-    font-family: 'Montserrat', sans-serif; /* خط عريض ومميز */
-    font-weight: 800; /* سمك الخط */
-    letter-spacing: -1px; /* تقليل المسافة بين الحروف لستايل عصري */
-    font-size: 1.5rem;
-    color: #333;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-.brand-logo i {
-    font-size: 1.8rem; /* حجم الأيقونة أكبر قليلاً من النص */
-    margin-right: 8px;
-    /* الجرادينت للأيقونة */
-    background: linear-gradient(to right, #FF4B2B, #FF416C);
+.navbar-brand {
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: var(--primary-grad);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.brand-logo span {
-    position: relative;
+.hero-section {
+    background: white;
+    padding: 80px 0;
+    border-radius: 0 0 50px 50px;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 50px;
 }
 
-/* نقطة حمراء صغيرة لزوم الديزاين (اختياري) */
-.brand-logo span::after {
-    content: '.';
-    color: #FF416C;
-    font-size: 2rem;
-    line-height: 0;
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    background: var(--primary-grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- Search --- */
+.btn-search {
+    background: var(--primary-grad);
+    color: white;
+    border: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-search:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* --- Product Cards --- */
+.product-card {
+    border: none;
+    border-radius: 20px;
+    background: white;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.4s;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* تعديل صور المنتجات لتكون موحدة */
+.img-container {
+    height: 250px;
+    /* ارتفاع ثابت لكل الصور */
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    /* توسيط الصورة عمودياً */
+    justify-content: center;
+    /* توسيط الصورة أفقياً */
+    padding: 10px;
+    overflow: hidden;
+    /* عشان لو الصورة كبيرة ماتخرجش بره */
+}
+
+.img-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* أهم سطر: بيخلي الصورة كاملة جوه المربع من غير ما تمط */
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .img-container img {
+    transform: scale(1.1);
+}
+
+.card-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.fav-icon {
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #dfe6e9;
+    transition: 0.3s;
+}
+
+.fav-icon:hover {
+    color: #ff7675;
+}
+
+.fav-icon.active {
+    color: #d63031;
+    animation: pop 0.3s linear;
+}
+
+@keyframes pop {
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* --- Buttons --- */
+.btn-add {
+    background: var(--dark-text);
+    color: white;
+    border: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn-add:hover {
+    background: var(--primary-grad);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-remove {
+    background: #ff7675;
+    color: white;
+    border: none;
+}
+
+.btn-remove:hover {
+    background: #d63031;
+}
+
+/* --- Cart Page Specifics (تنسيق الصور المربعة) --- */
+.cart-item-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f0f0f0;
+}
+
+.cart-img-wrapper {
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.cart-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.qty-control-group {
+    background: #f8f9fa;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid #eee;
+}
+
+.btn-qty {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: 0.2s;
+}
+
+.btn-qty:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.qty-val {
+    width: 40px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.btn-remove-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid #ffecec;
+    background: #fff5f5;
+    color: #ff7675;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.btn-remove-icon:hover {
+    background: #ff7675;
+    color: white;
+}
+
+/* =========================================
+   Auth Page Styling (Final Fix)
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* تنسيق الجسم للصفحة دي تحديداً */
+body.auth-body {
+    background: #f6f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    margin: 0;
+}
+
+/* الصندوق الرئيسي (كبرنا الطول لـ 700 بكسل) */
+.auth-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 900px;
+    max-width: 100%;
+    min-height: 700px;
+    /* أهم تعديل: الطول زاد عشان الخانات */
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+/* تحريك الفورم */
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.auth-container.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+}
+
+.auth-container.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+}
+
+@keyframes show {
+
+    0%,
+    49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+/* تنسيق المحتوى الداخلي (المسافات) */
+.auth-form {
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+    text-align: center;
+}
+
+.auth-form h1 {
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    /* مسافة تحت العنوان */
+}
+
+.auth-form span {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.social-container {
+    margin: 10px 0 15px 0;
+}
+
+.social-container a {
+    border: 1px solid #DDDDDD;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+    color: #333;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-container a:hover {
+    background: #eee;
+}
+
+/* خانات الإدخال (شكلها ومسافاتها) */
+.auth-input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 6px 0;
+    /* مسافة صغيرة بين الخانات عشان يكفوا */
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+}
+
+/* رابط نسيت كلمة السر */
+.forgot-pass {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+}
+
+/* الأزرار (Login & Register) */
+.btn-grad-auth {
+    border-radius: 25px;
+    border: 1px solid #FF4B2B;
+    background-color: #FF4B2B;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    cursor: pointer;
+    margin-top: 15px;
+    /* مسافة فوق الزرار */
+}
+
+.btn-grad-auth:active {
+    transform: scale(0.95);
+}
+
+.btn-grad-auth:focus {
+    outline: none;
+}
+
+.btn-grad-auth.ghost {
+    background-color: transparent;
+    border-color: #FFFFFF;
+}
+
+/* الستارة المتحركة (Overlay) */
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.auth-container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.overlay {
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #FFFFFF;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.auth-container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 10px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-panel h1 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.overlay-panel p {
+      font-size: 14px;
+    font-weight: 100;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 10px 0;
+
+
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.auth-container.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.auth-container.right-panel-active .overlay-right {
+    transform: translateX(20%);
 }
